@@ -10,7 +10,7 @@ This repository packages the HiSilicon BMC DRM driver under `src/` as an externa
 ## Prerequisites
 Install headers and toolchain matching your running kernel:
 
-```fish
+```bash
 # Debian/Ubuntu
 sudo apt install build-essential linux-headers-(uname -r)
 
@@ -23,9 +23,9 @@ If Secure Boot is enabled, sign the module or disable Secure Boot before loading
 ## Build & install with DKMS
 From the repository root (where `dkms.conf` lives):
 
-```fish
+```bash
 # Register this source with DKMS
-sudo dkms add (pwd)
+sudo dkms add .
 
 # Build the module
 sudo dkms build hibmc-drm/3c7623f
@@ -39,14 +39,14 @@ sudo modprobe hibmc-drm
 
 Remove/clean:
 
-```fish
+```bash
 sudo dkms remove hibmc-drm/3c7623f --all
 ```
 
 ## Local build (optional, without DKMS)
 Use the top-level Makefile to build as an external module:
 
-```fish
+```bash
 make
 make clean
 ```
